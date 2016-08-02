@@ -4,8 +4,7 @@ app = Flask(__name__)
 # SQLAlchemy stuff
 ### Add your tables here!
 # For example:
-# from database_setup import Base, Potato, Monkey
-from database_setup import Base
+from database_setup import Base, Person
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

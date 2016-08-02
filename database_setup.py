@@ -11,9 +11,15 @@ class Person(Base):
     __tablename__ = 'person'
     name = Column(String)
     id = Column(Integer, primary_key=True)
+    name = Column(String)
+    email = Column(String)
+    password = Column(String)
     gender = Column(String)
     nationality = Column(String)
-    hometown = Column(String)  # city/town name
-    email = Column(String)
+    city = Column(String)  # city/town name
     phone = Column(String)
+    instrument = Column(String)
     DOB = Column(String) #change
+    tv_shows = Column(String)
+
+
