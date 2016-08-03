@@ -14,10 +14,20 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-#YOUR WEB APP CODE GOES HERE
 @app.route('/')
 def main():
-    return render_template('main_page.html')
+    return render_template('/main_page.html')
+
+@app.route('/search/',methods=['GET','POST'])
+def search():
+	instrument = request.form['instrument']
+	return render_template('results.html', instrument = instrument)
+
+@app.route('/results/<str: instrument>',methods=['GET','POST'])
+def results(instrument):
+	if request.method == 'GET':
+		
 
 if __name__ == '__main__':
     app.run(debug=True)
+
