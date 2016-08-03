@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 # SQLAlchemy stuff
@@ -24,7 +24,7 @@ def main():
 		password = request.form('password')
 		user = session.query(Person).filter_by(email=email).first()
 		if password == user.password:
-			return render_template('search.html')
+			return redirect(url_for('search'), user.id)
 		else:
 			return render_template('main_page.html', error = True)
 
