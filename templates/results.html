@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<title> Results </title>
+<head>
+<h3> Musicians in the Area </h3>
+</head>
+<body>
+<table class="table">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Instruments</th>
+    <th>Gender</th>
+    <th>Nationality</th>
+    <th>City</th>
+    <th>Date of Birth</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  {% for person in users %}
+  <tr>
+    <td>{{ person.name }}</td>
+    <td>{{ perosn.instrument }}</td>
+    <td>{{ person.nationality }}</td>
+    <td>{{ person.city }} </td>
+    <td>{{ person.dob}} </td>
+
+  </tr>
+  {% endfor %}
+</body>
+
+
+</html>
