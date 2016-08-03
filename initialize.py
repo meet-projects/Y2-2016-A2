@@ -31,6 +31,21 @@ jeries = Person(name="jeries",
 
 # movie = Interests(name = "movie")
 # got = Interests(name = "GOT")
+# violin = Instrument(name = "violin")
+
+# session.add(violin)
+# session.add(jeries)
+
+# jeries.instrument.append(violin)
+# session.commit()
+
+# inst = session.query(PersonToInstrument).filter_by(instrument_id = violin.id).all()
+
+# for x in inst:
+# 	for p in x.person:
+# 		print (p.name)
+
+
 
 # jeries.interests.append(movie)
 # jeries2.interests += [movie, got]

@@ -39,22 +39,28 @@ def add_friend():
 		return render_template('sign_up.html', years = years, months = months, days = days)
 	else:
 		dob = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))
-		friend = Person(name = request.form['name'],
+		user = Person(name = request.form['name'],
 						gender = request.form['gender'],
 						nationality = request.form['nationality'],
 						city = request.form['city'],
 						email = request.form['email'],
 						password = request.form['password'],
-						instrument = request.form['instrument'],
 						genre = request.form['genre'],
 						phone = request.form['phone'],
 						dob = dob,
 						tv_shows = request.form['tv_shows'])
+		#Come back
+		instruments = Instrument(request.form['instrument'])
+		for instrument in instruments:
+			instrument_object = Instrument(name = instrument)
+			session.add(instrument_object)	
+			user.instrument.append(instrument_object)
 
-		session.add(friend)
+		session.add(user)
+
 		session.commit()
 
-		return redirect(url_for('search'))
+		return redirect(url_for('search'), user.id)
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
