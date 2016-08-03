@@ -5,13 +5,12 @@
 	<title> CoMusic </title>
 	 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8"> 
 
@@ -19,11 +18,16 @@
 </head>
 
 <body>
+{%if error%}
+<h1>Bad Login, Try again !</h1>
+{%endif%}
+
 <div class="container-fluid "> 
 <h1> <b> CoMuisc </b> </h1>
 <h3> Different though. Different sound. Different music. </h3>
 </div>
 <h4>Sign in</h4>
+
 <form action="{{ url_for('main_page.html') }}" method="POST">
 <div class="form-group">
       <label for="email">Email:</label>
@@ -37,7 +41,7 @@
   </form>
 </div>
 
-<p style="color: red; font-size: 20px"> We are the team of CoMusic proud to present our webside to you.<br>
+<p>We are the team of CoMusic proud to present our webside to you.<br>
 CoMusic it is the new way to get people from other nationallty get know each other and to pass meaningful experiences<br>
 Our goal</p>
 </body>
