@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name=“viewport” content=“width= device-width, initial 
+scale=1.0”> 
+
+<meta    charset="utf-­‐8">        
+
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='sign_up.css')}}">
+
+	<title>Sign Up</title>
+
+
+</head>
+<body>
+
+
+<div class="container-fluid"><div class="row"><div class="col-md-offset-3 col-md-3"><h1>Sign up here</h1></div></div></div>
+<hr>
+
+<div class="container-fluid"><div class="row"><div class="col-md-offset-3 col-md-2"><form>
+
+
+<br>
+<input type="text" name="name" placeholder="Name">
+<br>
+<h3>Gender</h3>
+<input type="radio" name="gender" value="male">Male
+<input type="radio" name="gender" value="female">Female
+<br>
+<h3>Nationality</h3>
+<input type="radio" name="nationality" value="israeli">Israeli
+<input type="radio" name="nationality" value="palestinian">Palestinian
+<br>
+<br>
+<input type="text" name="email" placeholder="E-mail">
+<br>
+<div><input type="password" name="password" placeholder="password"></div>
+<div><input type="password" name="password" placeholder="confirm password"></div>
+
+<h3>Instrument</h3>
+<div><input type="checkbox" name="instrument" value="guitar">guitar</div>
+<div><input type="checkbox" name="instrument" value="piano">piano</div>
+<div><input type="checkbox" name="instrument" value="violin">violin</div>
+<div><input type="checkbox" name="instrument" value="chelo">chelo</div>
+<div><input type="checkbox" name="instrument" value="voice">voice</div>
+<div><input type="checkbox" name="instrument" value="drums">drums</div>
+<div><input type="text" name="instrument" placeholder="other">
+<br>
+<br>
+<div><input type="text" name="city" placeholder="city"></div>
+<div><input type="text" name="phone number" placholder="phone number"></div>
+<div><input type="text" name="tv show" placeholder="favorite TV show"></div>
+
+<div class="form-group" style="float: left;">
+	<select name="day">
+		{% for day in days %}
+		<option value="{{ day }}">{{ day }}</option>
+		{% endfor %}
+	</select>
+</div>
+
+<div class="form-group" style="float: left;">
+	<select name="month">
+		{% for month in months %}
+		<option value="{{ month }}">{{ month }}</option>
+		{% endfor %}
+		</select>
+</div>
+
+<div class="form-group">
+	<select name="year">
+		{% for year in years %}
+		<option value="{{ year }}">{{ year }}</option>
+		{% endfor %}
+	</select>
+</div>
+
+</form></div></div></div>
+
+
+
+
+</body>
+</html>

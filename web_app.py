@@ -19,5 +19,12 @@ session = DBSession()
 def main():
     return render_template('main_page.html')
 
+@app.route('/home/sign-up/')
+def sign_up():
+	return render_template('sign_up.html')
+	pass
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
