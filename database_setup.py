@@ -18,7 +18,7 @@ class Person(Base):
 	nationality = Column(String)
 	city = Column(String)  # city/town name
 	phone = Column(String)
-	instrument = Column(String)
+	instrument = relationship("Instrument", uselist=True, secondary='person_to_instrument', lazy=True)
 	genre = Column(String)
 	dob = Column(Date) #change
 	tv_shows = Column(String)
@@ -39,18 +39,20 @@ class PersonToInterests(Base):
 	person = relationship(Person, uselist=True)
 	interest = relationship(Interests, uselist=True)
 
-class Interests(Base):
-	__tablename__ = 'interests'
+###
+
+class Instrument(Base):
+	__tablename__ = 'instrument'
 	id = Column(Integer, primary_key=True)
 	name = Column(String)
-	persons = relationship("Person", uselist=True, secondary='person_to_interests')	
+	persons = relationship("Person", uselist=True, secondary='person_to_instrument')	
 
 
-class PersonToInterests(Base):
-	__tablename__ = 'person_to_interests'
+class PersonToInstrument(Base):
+	__tablename__ = 'person_to_instrument'
 	id = Column(Integer, primary_key=True)
 	person_id = Column(Integer, ForeignKey('person.id'))
-	interests_id = Column(Integer, ForeignKey('interests.id'))
+	instrument_id = Column(Integer, ForeignKey('instrument.id'))
 	person = relationship(Person, uselist=True)
-	interest = relationship(Interests, uselist=True)
+	instrument = relationship(Instrument, uselist=True)
 
