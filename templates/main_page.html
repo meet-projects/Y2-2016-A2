@@ -26,9 +26,12 @@
 <h1> <b> CoMuisc </b> </h1>
 <h3> Different though. Different sound. Different music. </h3>
 </div>
+
+<a href="{{ url_for('sign_up') }}" class="btn btn-primary">Sign Up</a>
+
 <h4>Sign in</h4>
 
-<form action="{{ url_for('main_page.html') }}" method="POST">
+<form action="{{ url_for('main') }}" method="POST">
 <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Email">
@@ -37,7 +40,7 @@
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Password">
     </div>
-    <input type="submit" name="Submit">
+    <input type="submit" name="Submit" value="Sign In" class="btn btn-primary">
   </form>
 </div>
 

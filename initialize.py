@@ -39,11 +39,10 @@ jeries = Person(name="jeries",
 # jeries.instrument.append(violin)
 # session.commit()
 
-# inst = session.query(PersonToInstrument).filter_by(instrument_id = violin.id).all()
-
-# for x in inst:
-# 	for p in x.person:
-# 		print (p.name)
+# list_of_instruments = session.query(Instrument).filter_by(name = instrument).all()
+# list_of_people = []
+# for instrument in list_of_instruments:
+# 	list_of_people.append(instrument.persons)
 
 
 
