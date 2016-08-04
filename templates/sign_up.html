@@ -17,8 +17,8 @@ scale=1.0”>
 <meta charset="utf-­‐8">        
 
 
-<!--<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='grayscale.css')}}"> -->
 <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='sign_up.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
 
 	<title>Sign Up</title>
 
@@ -30,10 +30,11 @@ scale=1.0”>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
-      <h1>CoMusic</h1>
+      <h1 id="header-name">CoMusic</h1>
     </div>
     <div class="col-md-offset-8 col-md-1">
-    <input type="submit" name="Submit" value="Sign In" class="btn btn-lg btn-primary btn-block" id="loginbtn">
+    <div><input type="submit" name="Submit" value="Sign In" class="btn btn-md btn-info btn-block" id="loginbtn">
+    </div>
   </div>
 </div>
 <hr>
@@ -54,7 +55,7 @@ scale=1.0”>
   <div class="row">
     <div class="col-md-offset-3 col-md-2">
       <br>
-      <input type="text" name="name" placeholder="Name">
+      <input class="form-control input-lg" type="text" name="name" placeholder="Name">
       <br>
       <h3>Gender</h3>
       <input type="radio" name="gender" value="male">Male
@@ -65,19 +66,19 @@ scale=1.0”>
       <input type="radio" name="nationality" value="palestinian">Palestinian
       <br>
       <br>
-      <input type="text" name="email" placeholder="E-mail">
+      <input  class="form-control input-lg"type="text" name="email" placeholder="E-mail">
       <br>
       <br>
       <div>
-        <input type="password" name="password" placeholder="password">
+        <input class="form-control input-lg" type="password" name="password" placeholder="password">
       </div>
       <br>
       <div>
-        <input type="password" name="confirm_password" placeholder="confirm password">
+        <input class="form-control input-lg" type="password" name="confirm_password" placeholder="confirm password">
       </div>
       <br>
       <div>
-        <input type="text" name="genre" placeholder="genre">
+        <input class="form-control input-lg" type="text" name="genre" placeholder="genre">
       </div>
     </div>
 
@@ -89,13 +90,17 @@ scale=1.0”>
       <div><input type="checkbox" name="instrument" value="chelo">cello</div>
       <div><input type="checkbox" name="instrument" value="voice">voice</div>
       <div><input type="checkbox" name="instrument" value="drums">drums</div>
-      <div><input type="text" name="instrument" placeholder="other"></div>
+      <div><input class="form-control input-lg" type="text" name="instrument" placeholder="other"></div>
       <br>
-      <div><input type="text" name="city" placeholder="city"></div>
+      <div><input class="form-control input-lg" class="form-control input-lg" type="text" name="city" placeholder="city"></div>
       <br>
-      <div><input type="text" name="phone" placeholder="phone number"></div>
+      <div><input class="form-control input-lg" type="text" name="phone" placeholder="phone number"></div>
       <br>
+<<<<<<< HEAD
       <div><input type="text" name="tv_shows" placeholder="favorite TV show"></div>
+=======
+      <div><input class="form-control input-lg" type="text" name="tv_show" placeholder="favorite TV show"></div>
+>>>>>>> 7aadbfcb6fdc164bbc35c7451052d46c4bbcee37
       <br>
       <div class="form-group" style="float: left;">
 	    <select name="day">
@@ -132,7 +137,15 @@ scale=1.0”>
 </form>
 
 
-
+<h1>Custom Checkboxes</h1>
+<div>
+  <input id="box1" type="checkbox" />
+  <label for="box1">Checkbox 1</label>
+  <input id="box2" type="checkbox" />
+  <label for="box2">Checkbox 2</label>
+  <input id="box3" type="checkbox" />
+  <label for="box3">Checkbox 3</label>
+</div>
 
 
 </body>
