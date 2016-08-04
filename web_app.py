@@ -53,6 +53,7 @@ def sign_up():
 		return render_template('sign_up.html', years = years, months = months, days = days)
 	else:
 		if request.form['password'] == request.form['confirm_password']:	
+			print ("password OK")
 			dob = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))
 			user = Person(name = request.form['name'],
 							gender = request.form['gender'],
@@ -63,7 +64,8 @@ def sign_up():
 							genre = request.form['genre'],
 							phone = request.form['phone'],
 							dob = dob)
-			#Come back
+			session.add(user)
+			
 			instruments = request.form.getlist('instrument')
 			for instrument in instruments:
 				instrument_object = session.query(Instrument).filter_by(name=instrument).first()
@@ -71,29 +73,35 @@ def sign_up():
 					instrument_object = Instrument(name = instrument)
 					session.add(instrument_object)		
 				user.instrument.append(instrument_object)
-
-			# tv_shows = request.form['tv_shows']
-			# instrument_object = session.query(Instrument).filter_by(name=instrument).first()
-			# if not instrument_object:
-			# 	instrument_object = Instrument(name = instrument)
-			# 	session.add(instrument_object)		
-			# user.instrument.append(instrument_object)
-			session.add(user)
+			
+			tv_show = request.form['tv_shows']
+			hobbie_object = session.query(Interests).filter_by(name=tv_show).first()
+			if not hobbie_object:
+				hobbie_object = Interests(name = tv_show)
+				session.add(hobbie_object)		
+			user.interests.append(hobbie_object)
+				
 			session.commit()
 			return redirect(url_for('search'))
 		else:
-			return render_template('sign_up.html', error = True)
+			print("Password not OK")
+			currentyear = datetime.now().year
+			years = range(currentyear, currentyear - 101, -1)
+			months = range(1, 13)
+			days = range(1, 32)	
+			return render_template('sign_up.html', years = years, months = months, days = days, error = True)
 
-@app.route('/compare/<int:user_id>/<int:person_id>/')
-def compare(person_id, user_id):
-	return render_template('compare.html', person_id=person.id , user_id = user.id)
-
-
-
-
+@app.route('/compare/<int:person_id>/')
+def compare(person_id):
+	user_object = session.query(Person).filter_by(id = flasksession['user_id']).first()
+	print(user_object.name)
+	person_object = session.query(Person).filter_by(id = person_id).first()
+	print(person_object.name)	
+	return render_template('compare.html', person = person_object , user = user_object)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
 
 #fix adding date after error in sign up 
+#  delete from list of instruments in sing up the other (check if one is empty and delete it)
