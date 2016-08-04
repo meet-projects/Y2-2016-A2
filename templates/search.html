@@ -47,7 +47,7 @@
       <td>{{ person.city }}</td>
       <td>{{ person.dob.day }}/{{ person.dob.month }}/{{ person.dob.year }} </td>
       <td>{{ person.tv_show }}</td>
-      <td><a href="{{ url_for('compare',person_id=person.id) }}">Compare</a></td>
+      <td><a href="{{ url_for('compare',person_id = person.id , user_id = user.id)}}">Compare</a></td>
     </tr>
     {% endfor %}
     </tbody>

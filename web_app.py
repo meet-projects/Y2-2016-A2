@@ -16,9 +16,6 @@ session = DBSession()
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route('/compare/<int:person_id>/')
-def compare(person_id):
-	pass
 
 @app.route('/search/')
 def search():
@@ -79,6 +76,14 @@ def sign_up():
 		session.commit()
 		
 		return redirect(url_for('search'))
+
+@app.route('/compare/<int:user_id>/<int:person_id>/')
+def compare(person_id, user_id):
+	return render_template('compare.html', person_id=person.id , user_id = user.id)
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
