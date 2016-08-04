@@ -4,11 +4,35 @@
 		<title> Search </title>
 	</head>
 	<body>
-	<form action="{{ url_for('search') }}" method="POST">
+	<form action="{{ url_for('search', instrument) }}" method="POST">
 	<div class="form-group">
       <input type="text" class="form-control" name="instrument" id="search">
     </div>
     <input type="submit" value="Search">
   </form>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instruments</th>
+      <th>Gender</th>
+      <th>Nationality</th>
+      <th>City</th>
+      <th>Date of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for person in users %}
+    <tr>
+      <td>{{ person.name }}</td>
+      <td>{{ person.instrument }}</td>
+      <td>{{ person.gender }}</td>
+      <td>{{ person.nationality }}</td>
+      <td>{{ person.city }} </td>
+      <td>{{ person.dob.day }}/{{ perosn.dob.month }}/{{ person.dob.year }} </td>
+    </tr>
+    {% endfor %}
+
+
 	</body>
 </html> 

@@ -5,7 +5,7 @@ app = Flask(__name__)
 ### Add your tables here!
 # For example:
 from database_setup import Base, Person
-
+from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///project.db')
@@ -13,21 +13,14 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-
-####Nada's stuff
-# @app.route('/')
-# def main():
-#     return render_template('/main_page.html')
-
-# @app.route('/search/',methods=['GET','POST'])
-# def search():
-# 	instrument = request.form['instrument']
-# 	return render_template('results.html', instrument = instrument)
-
-# @app.route('/results/<str: instrument>',methods=['GET','POST'])
-# def results(instrument):
-# 	if request.method == 'GET':
-####
+@app.route('/search/',methods=['GET','POST'])
+def search():
+	instrument = request.form['instrument']
+	list_of_instruments = session.query(Person).filter_by(name = instrument).all()
+	list_of_people = []
+	for instrument in list_of_instruments:
+		list_of_people.append(instrument.person)
+	return render_template('search.html', Person = list_of_people)
 
 #YOUR WEB APP CODE GOES HERE
 @app.route('/', methods=['GET', 'POST'])
@@ -39,13 +32,13 @@ def main():
 		password = request.form('password')
 		user = session.query(Person).filter_by(email=email).first()
 		if password == user.password:
-			return redirect(url_for('search'), user.id)
+			return redirect(url_for('search'))
 		else:
 			return render_template('main_page.html', error = True)
 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
-def add_friend():
+def sign_up():
 	if request.method == 'GET':
 		currentyear = datetime.now().year
 		years = range(currentyear, currentyear - 101, -1)
@@ -72,21 +65,8 @@ def add_friend():
 			user.instrument.append(instrument_object)
 
 		session.add(user)
-
 		session.commit()
-
-		return redirect(url_for('search'), user.id)
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    return render_template('search.html')
-
-@app.route('/home/sign-up/')
-def sign_up():
-	return render_template('sign_up.html')
-	pass
-
-
+		return redirect(url_for('search'))
 
 if __name__ == '__main__':
     app.run(debug=True)
