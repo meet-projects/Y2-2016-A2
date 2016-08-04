@@ -81,7 +81,7 @@ def add_friend():
 def search():
     return render_template('search.html')
 
-@app.route('/home/sign-up/')
+@app.route('/sign-up/')
 def sign_up():
 	return render_template('sign_up.html')
 	pass
