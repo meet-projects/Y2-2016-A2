@@ -25,7 +25,7 @@
  <div class="container-fluid"><div class="row"><div class="col-md-offset-3 col-md-4"><div class="container-fluid "> 
 <h1> <b> CoMusic </b> </h1>
 <h3> Different Thought. Different Sound. Same Music. </h3>
-<a href="{{ url_for('sign_up') }}" class="btn btn-lg btn-primary btn-block">Sign Up</a>
+
 
 <h4>Sign in</h4></div></div></div></div>
 
@@ -45,7 +45,8 @@
 			    <input type="submit" name="Submit" value="Sign In" class="btn btn-lg btn-primary btn-block">
 			  </form>
 			  <br>
-			  <p>don't have an account? sign up here for free!</p>
+			  <p>don't have an account? sign up for free!</p>
+			  <a href="{{ url_for('sign_up') }}" class="btn btn-lg btn-primary btn-block">Sign Up</a>
 		</div>
 	</div>
 </div>
