@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CoMusic</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"> 
+
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+ <div class="container-fluid">
+ 	<div class="row">
+ 		<div class="col-md-1">
+ 		</div>
+ 		<div class="col-md-4">
+ 		<h3> Name = {{ user.name }} </h3>
+ 		<ul>
+ 		<li> Nationality: {{ user.nationality }}</li>
+ 		<li> City: {{ user.city }}</li>
+ 		<li> Phone Number: {{ user.phone }}</li>
+ 		<li> Instrument(s): {{ user.instrument }}</li>
+ 		<li> Music Genre(s): {{ user.genre }}</li>
+ 		<li> Birthday: {{ user.dob.day }}/{{ user.dob.month }}/{{ user.dob.year }}</li>
+ 		<li> Favorite TV Show(s): {{ user.tv_show }}</li>
+ 		</ul>
+ 		
+
+ 		</div>
+ 		<div class="col-md-2">  </div>
+ 		<div class="col-md-4">
+ 		<h3> Name = {{ person.name }} </h3>
+ 		<ul>
+ 		<li> Nationality: {{ person.nationality }}</li>
+ 		<li> City: {{ person.city }}</li>
+ 		<li> Phone Number: {{ person.phone }}</li>
+ 		<li> Instrument(s): {{ person.instrument }}</li>
+ 		<li> Music Genre(s): {{ person.genre }}</li>
+ 		<li> Birthday: {{ person.dob.day }}/{{ perosn.dob.month }}/{{ person.dob.year }}</li>
+ 		<li> Favorite TV Show(s): {{ person.tv_show }}</li>
+ 		</ul>
+ 		
+
+ 		</div>
+ 		<div class="col-md-1"> </div>
+
+ 			<div class="container-fluid ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

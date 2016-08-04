@@ -2,6 +2,18 @@
 <html>
 	<head>
 		<title> Search </title>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8"> 
+
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 	<body>
 	<form action="{{ url_for('search', instrument) }}" method="POST">
@@ -19,6 +31,8 @@
       <th>Nationality</th>
       <th>City</th>
       <th>Date of Birth</th>
+      <th>Favorite TV Show</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -28,11 +42,14 @@
       <td>{{ person.instrument }}</td>
       <td>{{ person.gender }}</td>
       <td>{{ person.nationality }}</td>
-      <td>{{ person.city }} </td>
+      <td>{{ person.city }}</td>
       <td>{{ person.dob.day }}/{{ perosn.dob.month }}/{{ person.dob.year }} </td>
+      <td>{{ person.tv_show }}</td>
+      <td><a href="{{ url_for('compare',person_id=person.id) }}">Compare</a></td>
     </tr>
     {% endfor %}
 
-
+    </tbody>
+    </table>
 	</body>
 </html> 

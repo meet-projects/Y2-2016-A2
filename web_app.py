@@ -66,6 +66,7 @@ def sign_up():
 
 		session.add(user)
 		session.commit()
+		
 		return redirect(url_for('search'))
 
 if __name__ == '__main__':
