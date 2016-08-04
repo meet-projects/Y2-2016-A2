@@ -16,7 +16,11 @@ session = DBSession()
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route('/search')
+@app.route('/compare/<int:person_id>/')
+def compare(person_id):
+	pass
+
+@app.route('/search/')
 def search():
 	instrument_name = request.args.get('instrument', None)
 	if instrument_name is None:
@@ -44,7 +48,7 @@ def main():
 			return render_template('main_page.html', error = True)
 
 
-@app.route('/sign_up', methods=['GET', 'POST'])
+@app.route('/sign_up/', methods=['GET', 'POST'])
 def sign_up():
 	if request.method == 'GET':
 		currentyear = datetime.now().year
