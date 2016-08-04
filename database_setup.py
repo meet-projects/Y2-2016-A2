@@ -21,7 +21,6 @@ class Person(Base):
 	instrument = relationship("Instrument", uselist=True, secondary='person_to_instrument', lazy=True)
 	genre = Column(String)
 	dob = Column(Date) #change
-	tv_shows = Column(String)
 	interests = relationship("Interests", uselist=True, secondary='person_to_interests', lazy=True)
 
 class Interests(Base):

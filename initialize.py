@@ -23,20 +23,23 @@ jeries = Person(name="jeries",
 				city="nazareth", 
 				genre="clasical", 
 				phone="45678876545", 
-				dob=datetime(2000,5,27), 
-				tv_shows="GOT")
+				dob=datetime(2000,5,27))
 
 
 
 
 violin = Instrument(name = "violin")
+GOT = Interests(name = "GOT")
+
 # got = Interests(name = "GOT")
 # violin = Instrument(name = "violin")
 
 # session.add(violin)
+jeries.instrument.append(violin)
+jeries.interests.append(GOT)
+
 session.add(jeries)
 
-jeries.instrument.append(violin)
 session.commit()
 
 # list_of_instruments = session.query(Instrument).filter_by(name = instrument).all()

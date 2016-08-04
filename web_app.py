@@ -26,9 +26,7 @@ def search():
 	if instrument_name is None:
 		list_of_people = []
 	else:
-		print(instrument_name)
 		instrument = session.query(Instrument).filter_by(name = instrument_name).first()
-		print(instrument)
 		list_of_people = instrument.persons
 	return render_template('search.html', users = list_of_people)
 
@@ -57,29 +55,40 @@ def sign_up():
 		days = range(1, 32)
 		return render_template('sign_up.html', years = years, months = months, days = days)
 	else:
-		dob = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))
-		user = Person(name = request.form['name'],
-						gender = request.form['gender'],
-						nationality = request.form['nationality'],
-						city = request.form['city'],
-						email = request.form['email'],
-						password = request.form['password'],
-						genre = request.form['genre'],
-						phone = request.form['phone'],
-						dob = dob,
-						tv_shows = request.form['tv_shows'])
-		#Come back
-		instruments = Instrument(request.form['instrument'])
-		for instrument in instruments:
-			instrument_object = Instrument(name = instrument)
-			session.add(instrument_object)	
-			user.instrument.append(instrument_object)
+		if request.form['password'] == request.form['confirm_password']:	
+			dob = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))
+			user = Person(name = request.form['name'],
+							gender = request.form['gender'],
+							nationality = request.form['nationality'],
+							city = request.form['city'],
+							email = request.form['email'],
+							password = request.form['password'],
+							genre = request.form['genre'],
+							phone = request.form['phone'],
+							dob = dob)
+			#Come back
+			instruments = request.form.getlist('instrument')
+			for instrument in instruments:
+				instrument_object = session.query(Instrument).filter_by(name=instrument).first()
+				if not instrument_object:
+					instrument_object = Instrument(name = instrument)
+					session.add(instrument_object)		
+				user.instrument.append(instrument_object)
 
-		session.add(user)
-		session.commit()
-		
-		return redirect(url_for('search'))
+			# tv_shows = request.form['tv_shows']
+			# instrument_object = session.query(Instrument).filter_by(name=instrument).first()
+			# if not instrument_object:
+			# 	instrument_object = Instrument(name = instrument)
+			# 	session.add(instrument_object)		
+			# user.instrument.append(instrument_object)
+			session.add(user)
+			session.commit()
+			return redirect(url_for('search'))
+		else:
+			return render_template('sign_up.html', error = True)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
+
+#fix adding date after error in sign up 

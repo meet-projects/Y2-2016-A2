@@ -38,8 +38,11 @@ scale=1.0”>
 </div>
 <hr>
 
-<form>
+{%if error%}
+<h1>Bad Sign up, Try again !</h1>
+{%endif%}
 
+<form action="{{ url_for('sign_up') }}" method="POST">
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-offset-3 col-md-2">
@@ -58,11 +61,17 @@ scale=1.0”>
       <br>
       <input type="text" name="email" placeholder="E-mail">
       <br>
+      <br>
       <div>
         <input type="password" name="password" placeholder="password">
       </div>
+      <br>
       <div>
-        <input type="password" name="password" placeholder="confirm password">
+        <input type="password" name="confirm_password" placeholder="confirm password">
+      </div>
+      <br>
+      <div>
+        <input type="text" name="genre" placeholder="genre">
       </div>
     </div>
 
@@ -76,11 +85,12 @@ scale=1.0”>
       <div><input type="checkbox" name="instrument" value="drums">drums</div>
       <div><input type="text" name="instrument" placeholder="other"></div>
       <br>
-      <br>
       <div><input type="text" name="city" placeholder="city"></div>
-      <div><input type="text" name="phone number" placholder="phone number"></div>
-      <div><input type="text" name="tv show" placeholder="favorite TV show"></div>
-
+      <br>
+      <div><input type="text" name="phone" placeholder="phone number"></div>
+      <br>
+      <div><input type="text" name="tv_show" placeholder="favorite TV show"></div>
+      <br>
       <div class="form-group" style="float: left;">
 	    <select name="day">
 		  {% for day in days %}
