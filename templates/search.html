@@ -4,7 +4,7 @@
 		<title> Search </title>
 	</head>
 	<body>
-	<form action="{{ url_for('search', instrument) }}" method="POST">
+	<form action="{{ url_for('search') }}">
 	<div class="form-group">
       <input type="text" class="form-control" name="instrument" id="search">
     </div>
@@ -25,11 +25,13 @@
     {% for person in users %}
     <tr>
       <td>{{ person.name }}</td>
-      <td>{{ person.instrument }}</td>
+      <td>{%for instrument in person.instrument%}
+      {{ instrument.name }}
+      {%endfor%}</td>
       <td>{{ person.gender }}</td>
       <td>{{ person.nationality }}</td>
       <td>{{ person.city }} </td>
-      <td>{{ person.dob.day }}/{{ perosn.dob.month }}/{{ person.dob.year }} </td>
+      <td>{{ person.dob.day }}/{{ person.dob.month }}/{{ person.dob.year }} </td>
     </tr>
     {% endfor %}
 

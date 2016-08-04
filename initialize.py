@@ -4,7 +4,7 @@ from datetime import datetime
 
 from database_setup import Base, Person, Interests, PersonToInterests, Instrument, PersonToInstrument
 
-engine = create_engine('sqlite:///crudlab.db')
+engine = create_engine('sqlite:///project.db')
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 
@@ -17,7 +17,7 @@ session = DBSession()
 
 jeries = Person(name="jeries",
 				email="jeries_k@gmail.com", 
-				password="fghjk5678", 
+				password="abc", 
 				gender="male", 
 				nationality="palastinian", 
 				city="nazareth", 
@@ -29,15 +29,15 @@ jeries = Person(name="jeries",
 
 
 
-# movie = Interests(name = "movie")
+violin = Instrument(name = "violin")
 # got = Interests(name = "GOT")
 # violin = Instrument(name = "violin")
 
 # session.add(violin)
-# session.add(jeries)
+session.add(jeries)
 
-# jeries.instrument.append(violin)
-# session.commit()
+jeries.instrument.append(violin)
+session.commit()
 
 # list_of_instruments = session.query(Instrument).filter_by(name = instrument).all()
 # list_of_people = []

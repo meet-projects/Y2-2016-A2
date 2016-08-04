@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, url_for, redirect
+from flask import session as flasksession
 app = Flask(__name__)
 
 # SQLAlchemy stuff
 ### Add your tables here!
 # For example:
-from database_setup import Base, Person
+from database_setup import Base, Person, Interests, PersonToInterests, Instrument, PersonToInstrument
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -13,14 +14,19 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-@app.route('/search/',methods=['GET','POST'])
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+@app.route('/search')
 def search():
-	instrument = request.form['instrument']
-	list_of_instruments = session.query(Person).filter_by(name = instrument).all()
-	list_of_people = []
-	for instrument in list_of_instruments:
-		list_of_people.append(instrument.person)
-	return render_template('search.html', Person = list_of_people)
+	instrument_name = request.args.get('instrument', None)
+	if instrument_name is None:
+		list_of_people = []
+	else:
+		print(instrument_name)
+		instrument = session.query(Instrument).filter_by(name = instrument_name).first()
+		print(instrument)
+		list_of_people = instrument.persons
+	return render_template('search.html', users = list_of_people)
 
 #YOUR WEB APP CODE GOES HERE
 @app.route('/', methods=['GET', 'POST'])
@@ -28,10 +34,11 @@ def main():
 	if request.method == 'GET':
 		return render_template('main_page.html')
 	else:
-		email = request.form('email')
-		password = request.form('password')
+		email = request.form['email']
+		password = request.form['password']
 		user = session.query(Person).filter_by(email=email).first()
 		if password == user.password:
+			flasksession['user_id'] = user.id
 			return redirect(url_for('search'))
 		else:
 			return render_template('main_page.html', error = True)
