@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
 	<title> CoMusic </title>
-	 <!-- Latest compiled and minified CSS -->
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -12,12 +13,31 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8"> 
+    <meta charset="utf-8"> 
 
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-	
-
+	<!--<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">-->
 </head>
+
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CoMusic</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              	<li class="active"><a href="#">Home</a></li>
+              	<li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
+              	<li><a href="#">Search</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
 <body >
 {%if error%}
