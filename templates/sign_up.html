@@ -41,6 +41,7 @@ scale=1.0”>
 
 
 <form action="{{ url_for('sign_up') }}" method="POST">
+<<<<<<< HEAD
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-offset-3 col-md-2">
@@ -70,8 +71,36 @@ scale=1.0”>
         <div>
           <input class="form-control input-lg" type="text" name="genre" placeholder="genre">
         </div>
+=======
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-2">
+      <br>
+      <input class="form-control input-lg" type="text" name="name" placeholder="Name">
+      <br>
+      <h3>Gender</h3>
+      <div class="well well-sm text-center">
+      <input type="radio" name="gender" value="male">Male
+      <input type="radio" name="gender" value="female">Female
+      </div>
+      
+      <h3>Nationality</h3>
+      <div class="well well-sm text-center">
+      <input type="radio" name="nationality" value="israeli">Israeli
+      <input type="radio" name="nationality" value="palestinian">Palestinian
+      </div>
+      <br>
+      <br>
+      <input  class="form-control input-lg"type="text" name="email" placeholder="E-mail">
+      <br>
+      <br>
+      <div>
+        <input class="form-control input-lg" type="password" name="password" placeholder="password">
+>>>>>>> 8a93ea7587bdef953b66bd07b8e02173bb02a1e7
       </div>
 
+<<<<<<< HEAD
       <div class="col-md-offset-1 col-md-2">
         <h3>Instrument</h3>
         <div><input type="checkbox" name="instrument" value="guitar">guitar</div>
@@ -120,5 +149,98 @@ scale=1.0”>
     </div>  
   </div>
 </form>
+=======
+    <div class="col-md-offset-1 col-md-2">
+      <h3>Instrument</h3>
+      <!--<div class="well well-sm text-center">-->
+
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="guitar">guitar</div></label>
+
+      <br>
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="piano">piano</div></label>
+      <br>
+
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="violin">violin</div></label>
+      <br>
+
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="chelo">cello</div></label>
+      <br>
+
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="voice">voice</div></label>
+      <br>
+
+      <label class="btn btn-primary" ><div><input type="checkbox" name="instrument" value="drums">drums</div></label>
+      <br>
+      <br>
+      <!--</div>-->
+      <div><input class="form-control input-lg" type="text" name="instrument" placeholder="other"></div>
+      <br>
+      <div><input class="form-control input-lg" class="form-control input-lg" type="text" name="city" placeholder="city"></div>
+      <br>
+      <div><input class="form-control input-lg" type="text" name="phone" placeholder="phone number"></div>
+      <br>
+      
+
+
+      <div><input class="form-control input-lg" type="text" name="tv_show" placeholder="favorite TV show"></div>
+
+      <br>
+      <div class="form-group" style="float: left;">
+	    <select name="day">
+		  {% for day in days %}
+		  <option value="{{ day }}">{{ day }}</option>
+		  {% endfor %}
+	    </select>
+      </div>
+
+      <div class="form-group" style="float: left;">
+	    <select name="month">
+		  {% for month in months %}
+		  <option value="{{ month }}">{{ month }}</option>
+		  {% endfor %}
+		</select>
+      </div>
+
+      <div class="form-group">
+	    <select name="year">
+		  {% for year in years %}
+		  <option value="{{ year }}">{{ year }}</option>
+		  {% endfor %}
+	  </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="form-group">
+	<div class="col-md-offset-4 col-md-3">
+	  <input type="submit" name="Submit" value="Submit" class="btn btn-lg btn-primary btn-block">
+  	</div>  
+</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 8a93ea7587bdef953b66bd07b8e02173bb02a1e7
 </body>
 </html>
