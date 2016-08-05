@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -10,23 +9,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <meta name=“viewport” content=“width= device-width, initial 
 scale=1.0”> 
-
 <meta charset="utf-­‐8">        
 
-
-<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='sign_up.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
-
 	<title>Sign Up</title>
-
-
 </head>
 <body>
-
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
@@ -51,102 +41,84 @@ scale=1.0”>
 
 
 <form action="{{ url_for('sign_up') }}" method="POST">
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-offset-3 col-md-2">
-      <br>
-      <input class="form-control input-lg" type="text" name="name" placeholder="Name">
-      <br>
-      <h3>Gender</h3>
-      <input type="radio" name="gender" value="male">Male
-      <input type="radio" name="gender" value="female">Female
-      <br>
-      <h3>Nationality</h3>
-      <input type="radio" name="nationality" value="israeli">Israeli
-      <input type="radio" name="nationality" value="palestinian">Palestinian
-      <br>
-      <br>
-      <input  class="form-control input-lg"type="text" name="email" placeholder="E-mail">
-      <br>
-      <br>
-      <div>
-        <input class="form-control input-lg" type="password" name="password" placeholder="password">
-      </div>
-      <br>
-      <div>
-        <input class="form-control input-lg" type="password" name="confirm_password" placeholder="confirm password">
-      </div>
-      <br>
-      <div>
-        <input class="form-control input-lg" type="text" name="genre" placeholder="genre">
-      </div>
-    </div>
-
-    <div class="col-md-offset-1 col-md-2">
-      <h3>Instrument</h3>
-      <div><input type="checkbox" name="instrument" value="guitar">guitar</div>
-      <div><input type="checkbox" name="instrument" value="piano">piano</div>
-      <div><input type="checkbox" name="instrument" value="violin">violin</div>
-      <div><input type="checkbox" name="instrument" value="chelo">cello</div>
-      <div><input type="checkbox" name="instrument" value="voice">voice</div>
-      <div><input type="checkbox" name="instrument" value="drums">drums</div>
-      <div><input class="form-control input-lg" type="text" name="instrument" placeholder="other"></div>
-      <br>
-      <div><input class="form-control input-lg" class="form-control input-lg" type="text" name="city" placeholder="city"></div>
-      <br>
-      <div><input class="form-control input-lg" type="text" name="phone" placeholder="phone number"></div>
-      <br>
-<<<<<<< HEAD
-      <div><input type="text" name="tv_shows" placeholder="favorite TV show"></div>
-=======
-      <div><input class="form-control input-lg" type="text" name="tv_show" placeholder="favorite TV show"></div>
->>>>>>> 7aadbfcb6fdc164bbc35c7451052d46c4bbcee37
-      <br>
-      <div class="form-group" style="float: left;">
-	    <select name="day">
-		  {% for day in days %}
-		  <option value="{{ day }}">{{ day }}</option>
-		  {% endfor %}
-	    </select>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-2">
+        <br>
+        <input class="form-control input-lg" type="text" name="name" placeholder="Name">
+        <br>
+        <h3>Gender</h3>
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <br>
+        <h3>Nationality</h3>
+        <input type="radio" name="nationality" value="israeli">Israeli
+        <input type="radio" name="nationality" value="palestinian">Palestinian
+        <br>
+        <br>
+        <input  class="form-control input-lg"type="text" name="email" placeholder="E-mail">
+        <br>
+        <br>
+        <div>
+          <input class="form-control input-lg" type="password" name="password" placeholder="password">
+        </div>
+        <br>
+        <div>
+          <input class="form-control input-lg" type="password" name="confirm_password" placeholder="confirm password" required>
+        </div>
+        <br>
+        <div>
+          <input class="form-control input-lg" type="text" name="genre" placeholder="genre">
+        </div>
       </div>
 
-      <div class="form-group" style="float: left;">
-	    <select name="month">
-		  {% for month in months %}
-		  <option value="{{ month }}">{{ month }}</option>
-		  {% endfor %}
-		</select>
-      </div>
+      <div class="col-md-offset-1 col-md-2">
+        <h3>Instrument</h3>
+        <div><input type="checkbox" name="instrument" value="guitar">guitar</div>
+        <div><input type="checkbox" name="instrument" value="piano">piano</div>
+        <div><input type="checkbox" name="instrument" value="violin">violin</div>
+        <div><input type="checkbox" name="instrument" value="chelo">cello</div>
+        <div><input type="checkbox" name="instrument" value="voice">voice</div>
+        <div><input type="checkbox" name="instrument" value="drums">drums</div>
+        <div><input class="form-control input-lg" type="text" name="instrument" placeholder="other"></div>
+        <br>
+        <div><input class="form-control input-lg" class="form-control input-lg" type="text" name="city" placeholder="city"></div>
+        <br>
+        <div><input class="form-control input-lg" type="text" name="phone" placeholder="phone number"></div>
+        <br>
+        <div><input class="form-control input-lg" type="text" name="tv_shows" placeholder="favorite TV show"></div>
+        <br>
+        <div class="form-group" style="float: left;">
+  	    <select name="day">
+  		  {% for day in days %}
+  		  <option value="{{ day }}">{{ day }}</option>
+  		  {% endfor %}
+  	    </select>
+        </div>
 
-      <div class="form-group">
-	    <select name="year">
-		  {% for year in years %}
-		  <option value="{{ year }}">{{ year }}</option>
-		  {% endfor %}
-	  </select>
+        <div class="form-group" style="float: left;">
+  	    <select name="month">
+  		  {% for month in months %}
+  		  <option value="{{ month }}">{{ month }}</option>
+  		  {% endfor %}
+  		</select>
+        </div>
+
+        <div class="form-group">
+  	    <select name="year">
+  		  {% for year in years %}
+  		  <option value="{{ year }}">{{ year }}</option>
+  		  {% endfor %}
+  	  </select>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="form-group">
-	<div class="col-md-offset-4 col-md-3">
-	  <input type="submit" name="Submit" value="Submit" class="btn btn-lg btn-primary btn-block">
-  	</div>  
-</div>
-
+  <div class="form-group">
+  	<div class="col-md-offset-4 col-md-3">
+  	  <input type="submit" name="Submit" value="Submit" class="btn btn-lg btn-primary btn-block">
+    </div>  
+  </div>
 </form>
-
-
-<h1>Custom Checkboxes</h1>
-<div>
-  <input id="box1" type="checkbox" />
-  <label for="box1">Checkbox 1</label>
-  <input id="box2" type="checkbox" />
-  <label for="box2">Checkbox 2</label>
-  <input id="box3" type="checkbox" />
-  <label for="box3">Checkbox 3</label>
-</div>
-
-
 </body>
 </html>

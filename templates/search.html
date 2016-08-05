@@ -22,6 +22,9 @@
     </div>
     <input type="submit" value="Search">
   </form>
+  {%if error%}
+  <h1>No results, try again !</h1>
+  {%endif%}
   <table class="table">
   <thead>
     <tr>

@@ -26,19 +26,31 @@ jeries = Person(name="jeries",
 				dob=datetime(2000,5,27))
 
 
-
+session.add(jeries)
 
 violin = Instrument(name = "violin")
 GOT = Interests(name = "GOT")
-
-# got = Interests(name = "GOT")
-# violin = Instrument(name = "violin")
-
-# session.add(violin)
 jeries.instrument.append(violin)
 jeries.interests.append(GOT)
 
-session.add(jeries)
+yaniv = Person(name="yaniv",
+				email="yanivkapx1@gmail.com", 
+				password="yaniv", 
+				gender="male", 
+				nationality="Israeli", 
+				city="Bet Shemesh", 
+				genre="Rock", 
+				phone="0507183378", 
+				dob=datetime(2000,6,24))
+
+
+session.add(yaniv)
+
+guitar = Instrument(name = "guitar")
+HIMYM = Interests(name = "How I met your mother")
+yaniv.instrument.append(guitar)
+yaniv.instrument.append(violin)
+yaniv.interests.append(HIMYM)
 
 session.commit()
 
@@ -47,7 +59,10 @@ session.commit()
 # for instrument in list_of_instruments:
 # 	list_of_people.append(instrument.persons)
 
+# got = Interests(name = "GOT")
+# violin = Instrument(name = "violin")
 
+# session.add(violin)
 
 # jeries.interests.append(movie)
 # jeries2.interests += [movie, got]
