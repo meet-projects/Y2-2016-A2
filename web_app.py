@@ -16,28 +16,30 @@ session = DBSession()
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-
 @app.route('/search/')
 def search():
 	instrument_name = request.args.get('instrument', None)
 	list_of_people = []
-	if instrument_name is None: # only instruments, didn't get instrument
-		return render_template('search.html', users = list_of_people, error = True)
-	else:
-		user_city = session.query(Person).filter_by(id = flasksession['user_id']).first().city
-		instrument = session.query(Instrument).filter_by(name = instrument_name).first()
-		if instrument is None: # only instruments
-			return render_template('search.html', users = list_of_people, error	= True) # can't find instrument
+	if 'user_id' in flasksession:
+		if instrument_name is None: # only instruments, didn't get instrument
+			return render_template('search.html', users = list_of_people)
 		else:
-			list_of_people_instruments = instrument.persons
-			for person in list_of_people_instruments:
-				if person.city == user_city:
-					list_of_people.append(person)
-					print (person.name)
-			if list_of_people == []: #with cities
-				return render_template('search.html', users = list_of_people, error	= True)
-			else:
-				return render_template('search.html', users = list_of_people)
+				user_city = session.query(Person).filter_by(id = flasksession['user_id']).first().city
+				instrument = session.query(Instrument).filter_by(name = instrument_name).first()
+				if instrument is None: # only instruments
+					return render_template('search.html', users = list_of_people, error1 = True) # can't find instrument
+				else:
+					list_of_people_instruments = instrument.persons
+					for person in list_of_people_instruments:
+						if person.city == user_city:
+							list_of_people.append(person)
+							print (person.name)
+					if list_of_people == []: #with cities
+						return render_template('search.html', users = list_of_people, error1 = True)
+					else:
+						return render_template('search.html', users = list_of_people)
+	else:
+		return render_template('search.html', users = list_of_people, error2 = True)
 
 #YOUR WEB APP CODE GOES HERE
 @app.route('/', methods=['GET', 'POST'])

@@ -15,30 +15,32 @@ session = DBSession()
 
 # You can add some starter data for your database here.
 
-jeries = Person(name="jeries",
-				email="jeries_k@gmail.com", 
-				password="abc", 
-				gender="male", 
-				nationality="palastinian", 
-				city="nazareth", 
+jeries = Person(name="Jeries Saleh",
+				email="jeries@gmail.com", 
+				password="jeries", 
+				gender="Male", 
+				nationality="Palastinian", 
+				city="Jerusalem", 
 				genre="clasical", 
-				phone="45678876545", 
+				phone="0502846374", 
 				dob=datetime(2000,5,27))
 
 
 session.add(jeries)
 
+oud = Instrument(name = "oud")
 violin = Instrument(name = "violin")
-GOT = Interests(name = "GOT")
+friends = Interests(name = "friends")
 jeries.instrument.append(violin)
-jeries.interests.append(GOT)
+jeries.instrument.append(oud)
+jeries.interests.append(friends)
 
-yaniv = Person(name="yaniv",
-				email="yanivkapx1@gmail.com", 
+yaniv = Person(name="Yaniv Kapilianov",
+				email="yaniv@gmail.com", 
 				password="yaniv", 
-				gender="male", 
+				gender="Male", 
 				nationality="Israeli", 
-				city="Bet Shemesh", 
+				city="Jerusalem", 
 				genre="Rock", 
 				phone="0507183378", 
 				dob=datetime(2000,6,24))
@@ -47,30 +49,66 @@ yaniv = Person(name="yaniv",
 session.add(yaniv)
 
 guitar = Instrument(name = "guitar")
+voice = Instrument(name = "voice")
 HIMYM = Interests(name = "How I met your mother")
 yaniv.instrument.append(guitar)
-yaniv.instrument.append(violin)
+yaniv.instrument.append(voice)
 yaniv.interests.append(HIMYM)
 
-tal = Person(name="Tal",
-				email="yanivkapx1@gmail.com", 
+tal = Person(name="Tal Bar",
+				email="tal@gmail.com", 
 				password="Jerusalem", 
-				gender="female", 
+				gender="Female", 
 				nationality="Israeli", 
-				city="Bet Shemesh", 
+				city="Jerusalem", 
 				genre="Rock", 
-				phone="0507183378", 
-				dob=datetime(2000,6,24))
+				phone="0507567873", 
+				dob=datetime(2000,4,3))
 
 
 session.add(tal)
 
-voice = Instrument(name = "voice")
 drums = Instrument(name = "drums")
-HIMYM = Interests(name = "How I met your mother")
+flash = Interests(name = "The Flash")
 tal.instrument.append(drums)
 tal.instrument.append(voice)
-tal.interests.append(HIMYM)
+tal.interests.append(flash)
+
+yair = Person(name="Yair Shalev",
+				email="yair@gmail.com", 
+				password="Jerusalem", 
+				gender="Male", 
+				nationality="Israeli", 
+				city="Jerusalem", 
+				genre="Rock", 
+				phone="05078484489", 
+				dob=datetime(1999,7,7))
+
+
+session.add(yair)
+
+piano = Instrument(name = "piano")
+contrabass = Instrument(name = "contrabass")
+GOT = Interests(name = "Game Of Thrones")
+yair.instrument.append(piano)
+yair.instrument.append(contrabass)
+yair.interests.append(GOT)
+
+nada = Person(name="Nada Swedan",
+				email="nada@gmail.com", 
+				password="Jerusalem", 
+				gender="Feale", 
+				nationality="Palastinian", 
+				city="Jerusalem", 
+				genre="Rock", 
+				phone="05078484489", 
+				dob=datetime(1999,7,25))
+
+
+session.add(nada)
+
+nada.instrument.append(voice)
+nada.interests.append(friends)
 
 session.commit()
 

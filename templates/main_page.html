@@ -19,6 +19,8 @@
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='yaniv.css') }}">
 
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="/static/logo.png">
 </head>
 <body>
 
@@ -84,20 +86,26 @@
 
 </div>
 
+
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<h3 style="font-family: 'Montserrat', sans-serif;">About Us</h3>
-			<p>
-			We are the team of CoMusic proud to present our webside to you.
-			CoMusic is a new way to get people from other nationalities to get know each other and to pass meaningful experiences togeether through music<br>
-			In the webside you have the oppurtunity to talk to new people and meet them through your talent. 
+			<h3 style="font-family: 'Montserrat', sans-serif; font-size: 300%">About Us</h3>
+			<p style="font-size: 150%">
+			Team CoMusic proud to present our webside to you.<br>
+			CoMusic is a new way to get people from other nationalities to know each other and to pass meaningful experiences together through music.<br>
+			In the webside you have the opportunity to talk to new people and meet them through your talent.<br> 
 			Our goal is to start giving people a way to communicate with passion.</p>
 			</p>
 		</div>
-		<div class="col-md-2"></div>
+		<div class="col-md-4"><img src="{{ url_for('static',filename='logo.png')}}" alt="logo" height="100%" width="100%" style=""></div>
 	</div>
+</div>
+
+<div style="background-color: #EDEDED; padding: 15px;">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Glny4jSciVI" frameborder="0" allowfullscreen></iframe>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/L7IP4UlXvG8" frameborder="0" allowfullscreen></iframe>
 </div>
 
 </body>
