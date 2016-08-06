@@ -52,6 +52,26 @@ yaniv.instrument.append(guitar)
 yaniv.instrument.append(violin)
 yaniv.interests.append(HIMYM)
 
+tal = Person(name="Tal",
+				email="yanivkapx1@gmail.com", 
+				password="Jerusalem", 
+				gender="female", 
+				nationality="Israeli", 
+				city="Bet Shemesh", 
+				genre="Rock", 
+				phone="0507183378", 
+				dob=datetime(2000,6,24))
+
+
+session.add(tal)
+
+voice = Instrument(name = "voice")
+drums = Instrument(name = "drums")
+HIMYM = Interests(name = "How I met your mother")
+tal.instrument.append(drums)
+tal.instrument.append(voice)
+tal.interests.append(HIMYM)
+
 session.commit()
 
 # list_of_instruments = session.query(Instrument).filter_by(name = instrument).all()

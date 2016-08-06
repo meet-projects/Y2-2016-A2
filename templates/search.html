@@ -1,50 +1,57 @@
  <!DOCTYPE html>
 <html>
 	<head>
-		<title> Search </title>
-		<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<title>Search</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<!-- Latest compiled JavaScript -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8"> 
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+
+  <!--<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">-->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='yaniv.css') }}">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 
-	<nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
+<nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
+            <a class="navbar-brand" href="{{ url_for('main') }}">CoMusic</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+                <li><a href="{{ url_for('main') }}">Home</a></li>
+                <li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
+                <li class="active"><a href="{{ url_for('search') }}">Search</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-
+            <ul class="nav navbar-nav navbar-right">
+        <li><img src="{{ url_for('static',filename='logo.png')}}" alt="logo" height="50px" width="50px" style=""></li>          
+      </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+  
 	<form action="{{ url_for('search') }}">
 	<div class="form-group">
       <br>
       <br>
       <br>
       <hr>
-      <div class="col-md-offset-2 col-md-6">
+      <div class="col-md-offset-2 col-md-5">
       <input type="text" class="form-control input-lg" name="instrument" id="search" placeholder="Search">
 
   <div class="col-md-offset-1 col-md-3">
@@ -54,7 +61,10 @@
     </div>
   </div>
   </form>
-  {%if error%}
+  {%if error1%}
+  <h1>You are not logged in !</h1>
+  {%endif%}
+  {%if error2%}
   <h1>No results, try again !</h1>
   {%endif%}
   <table class="table">

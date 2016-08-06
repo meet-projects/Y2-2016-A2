@@ -1,0 +1,12 @@
+.pic-bg-music {
+	background-image: url("background.jpg");
+    background-size: cover;
+    color: white;
+}
+body {
+	text-align: center;
+}
+.bg-signup {
+	background-image: url("bg-signup.jpg");
+    background-size: cover;
+}

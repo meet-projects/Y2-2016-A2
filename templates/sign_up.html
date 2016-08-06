@@ -2,56 +2,185 @@
 <html lang="en">
 <head>
 
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Sign Up</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
 
-<meta name=“viewport” content=“width= device-width, initial 
-scale=1.0”> 
+  <!--<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">-->
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='yaniv.css') }}">
 
-<meta charset="utf-­‐8">        
-
-
-<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='sign_up.css')}}">
-<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
-
-	<title>Sign Up</title>
-
-
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
+<nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('main') }}">CoMusic</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('main') }}">Home</a></li>
+                <li class="active"><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('search') }}">Search</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+        <li><img src="{{ url_for('static',filename='logo.png')}}" alt="logo" height="50px" width="50px" style=""></li>          
+      </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
 
-<div class="container-fluid">
+
+
+
+
+<div class="bg-signup container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      <h1 id="header-name">CoMusic</h1>
-    </div>
-    <div class="col-md-offset-8 col-md-1">
-    <div><input type="submit" name="Submit" value="Sign In" class="btn btn-md btn-info btn-block" id="loginbtn">
-    </div>
+    <h1 style="font-family: 'Montserrat', sans-serif; font-size: 500%">Sign Up</h1>
   </div>
-</div>
-<hr>
-
-{%if error%}
-<h1>Bad Sign up, Try again !</h1>
-{%endif%}
-
-<div class="container-fluid">
-  <div class="col-md-offset-3 col-md-3">
-    <h1>sign up</h1>
+  <div class="row">
+    {%if error%}
+    <h1 style="font-family: 'Montserrat', sans-serif; font-size: 400%">Bad Sign up, Try again !</h1>
+    {%endif%}
   </div>
-</div>
-
-
 <form action="{{ url_for('sign_up') }}" method="POST">
+  <div class="row">
 
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <input class="form-control input-lg" type="text" name="name" placeholder="Name">
+      <h3>Gender</h3>
+        <div class="well well-sm text-left">
+        <input type="radio" name="gender" value="male">Male
+        <br>
+        <input type="radio" name="gender" value="female">Female
+      </div>
+      <h3>Nationality</h3>
+      <div class="well well-sm text-left">
+        <input type="radio" name="nationality" value="israeli">Israeli
+        <br>
+        <input type="radio" name="nationality" value="palestinian">Palestinian
+      </div>
+        <input  class="form-control input-lg"type="text" name="email" placeholder="E-mail">
+        <br>
+        <div>
+          <input class="form-control input-lg" type="password" name="password" placeholder="password">
+        </div>
+        <br>
+        <div>
+          <input class="form-control input-lg" type="password" name="confirm_password" placeholder="confirm password">
+        </div>
+        <br>
+        <div>
+          <input class="form-control input-lg" type="text" name="genre" placeholder="genre">
+        </div>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+         <h3>Instrument</h3>
+          <div class="well well-sm text-left">
+
+          <label class="btn"><input type="checkbox" name="instrument" value="guitar">Guitar</label>
+
+          <br>
+          <label class="btn"><input type="checkbox" name="instrument" value="piano">Piano</label>
+          <br>
+
+          <label class="btn"><input type="checkbox" name="instrument" value="violin">Violin</label>
+          <br>
+
+          <label class="btn"><input type="checkbox" name="instrument" value="chelo">Cello</label>
+          <br>
+
+          <label class="btn"><input type="checkbox" name="instrument" value="voice">Voice</label>
+          <br>
+
+          <label class="btn"><input type="checkbox" name="instrument" value="drums">Drums</label>
+        <br>
+        <div><input class="form-control input-lg" type="text" name="instrument" placeholder="other"></div>
+        </div>
+
+        <br>
+        <div><input class="form-control input-lg" class="form-control input-lg" type="text" name="city" placeholder="city"></div>
+        <br>
+        <div><input class="form-control input-lg" type="text" name="phone" placeholder="phone number"></div>
+        <br>
+        <div><input class="form-control input-lg" type="text" name="tv_shows" placeholder="favorite TV show"></div>
+
+        <br>
+
+        <div class="row">
+
+          <div class="form-group">
+            <div class="col-md-4">
+              <select name="day">
+              {% for day in days %}
+              <option value="{{ day }}">{{ day }}</option>
+              {% endfor %}
+              </select>
+            </div>
+            
+            <div class="col-md-4">
+              <select name="month">
+              {% for month in months %}
+              <option value="{{ month }}">{{ month }}</option>
+              {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <select name="year">
+              {% for year in years %}
+              <option value="{{ year }}">{{ year }}</option>
+              {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-3">
+      <input type="submit" name="Submit" value="Submit" class="btn btn-lg btn-primary btn-block" style="margin-bottom: 20px;">
+      </div>  
+  </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<form action="{{ url_for('sign_up') }}" method="POST">
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-offset-2 col-md-3">
@@ -92,7 +221,7 @@ scale=1.0”>
 
     <div class="col-md-offset-1 col-md-3">
       <h3>Instrument</h3>
-      <!--<div class="well well-sm text-center">-->
+      <!--<div class="well well-sm text-center">
       <div class="col-md-5">
       <label class="btn btn-primary" ><div class="col-md-3"><input type="checkbox" name="instrument" value="guitar">guitar</div></label>
 
@@ -122,7 +251,7 @@ scale=1.0”>
       
 
 
-      <div><input class="form-control input-lg" type="text" name="tv_show" placeholder="favorite TV show"></div>
+      <div><input class="form-control input-lg" type="text" name="tv_shows" placeholder="favorite TV show"></div>
 
       <br>
       <div class="form-group" style="float: left;">
@@ -163,21 +292,7 @@ scale=1.0”>
 <br>
 <br>
 
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</form>-->
 
 
 
