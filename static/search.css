@@ -1,0 +1,18 @@
+
+.search{
+	color: white;
+	font-size: 16px;
+
+}
+
+.bg-search{
+	background-image: url("bg-search.jpg");
+	background-size: cover;
+
+
+}
+
+.search-head{
+	font-size: 24px;
+	color: white;
+}
