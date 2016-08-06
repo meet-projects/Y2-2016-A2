@@ -22,7 +22,7 @@ def search():
 	instrument_name = request.args.get('instrument', None)
 	list_of_people = []
 	if instrument_name is None: # only instruments, didn't get instrument
-		return render_template('search.html', users = list_of_people)
+		return render_template('search.html', users = list_of_people, error = True)
 	else:
 		user_city = session.query(Person).filter_by(id = flasksession['user_id']).first().city
 		instrument = session.query(Instrument).filter_by(name = instrument_name).first()

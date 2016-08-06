@@ -14,13 +14,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8"> 
 
-	<!--<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">-->
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='yaniv.css') }}">
+  	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='compare.css') }}">
+
 
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
-<body>
-
+<body class="bg-compare">
 <nav class="navbar navbar-default" style="margin-bottom: 0px;">
     <div class="container-fluid">
       	<div class="navbar-header">
@@ -44,54 +43,59 @@
       	</div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
-
- <div class="container-fluid">
- 	<div class="row">
- 		<div class="col-md-1">
- 		</div>
- 		<div class="col-md-4">
- 		<h3>{{ user.name }}</h3>
- 		<ul>
- 		<li>Nationality: {{ user.nationality }}</li>
- 		<li>City: {{ user.city }}</li>
- 		<li>Phone Number: {{ user.phone }}</li>
- 		<li>Instrument(s): 
- 		{%for instrument in user.instrument%}
- 		{{ instrument.name }}
- 		{%endfor%}</li>
- 		<li>Music Genre(s): {{ user.genre }}</li>
- 		<li>Birthday: {{ user.dob.day }}/{{ user.dob.month }}/{{ user.dob.year }}</li>
- 		<li>Favorite TV Show(s): 
- 		{%for interest in user.interests%}
- 		{{ interest.name }}
- 		{%endfor%}</li>
- 		</ul>
- 		
-
- 	</div>
- 		<div class="col-md-2">  </div>
- 		<div class="col-md-4">
- 		<h3>{{ person.name }}</h3>
- 		<ul>
- 		<li>Nationality: {{ person.nationality }}</li>
- 		<li>City: {{ person.city }}</li>
- 		<li>Phone Number: {{ person.phone }}</li>
- 		<li>Instrument(s): 
- 		{%for instrument in person.instrument%}
- 		{{ instrument.name }}
- 		{%endfor%}</li>
- 		<li>Music Genre(s): {{ person.genre }}</li>
- 		<li>Birthday: {{ person.dob.day }}/{{ person.dob.month }}/{{ person.dob.year }}</li>
- 		<li>Favorite TV Show(s): 
- 		{%for interest in person.interests%}
- 		{{ interest.name }}
- 		{%endfor%}</li>
- 		</ul>
- 		
-
- 		</div>
- 		<div class="col-md-1"> </div>
-
- 			<div class="container-fluid ">
+	<table class="table">
+	<thead style="color: white;">
+		<tr>
+			<th>Details</th>
+			<th>{{ user.name }}</th>
+			<th>{{ person.name }}</th>
+		</tr>
+	</thead>
+	<tbody style="color: white;">
+		<tr>
+			<td><b>Nationality</b></td>
+			<td>{{ user.nationality }}</td>
+			<td>{{ person.nationality }}</td>
+		</tr>
+		<tr>
+			<td><b>City</b></td>
+			<td>{{ user.city }}</td>
+			<td>{{ person.city }}</td>
+		</tr>
+		<tr>
+			<td><b>Phone number</b></td>
+			<td>{{ user.phone }}</td>
+			<td>{{ person.phone }}</td>
+		</tr>
+		<tr>
+			<td><b>Instruments</b></td>
+			<td>{%for instrument in user.instrument%}
+	 		{{ instrument.name }}
+	 		{%endfor%}</td>
+	 		<td>{%for instrument in person.instrument%}
+	 		{{ instrument.name }}
+	 		{%endfor%}</td>
+		</tr>
+		<tr>
+			<td><b>Music genres</b></td>
+			<td>{{ user.genre }}</td>
+			<td>{{ person.genre }}</td>
+		</tr>
+		<tr>
+			<td><b>Birthday</b></td>
+			<td>{{ user.dob.day }}/{{ user.dob.month }}/{{ user.dob.year }}</td>
+			<td>{{ person.dob.day }}/{{ person.dob.month }}/{{ person.dob.year }}</td>
+		</tr>
+		<tr>
+			<td><b>Favorite TV Shows</b></td>
+			<td>{%for interest in user.interests%}
+	 		{{ interest.name }}
+	 		{%endfor%}</td>
+	 		<td>{%for interest in person.interests%}
+	 		{{ interest.name }}
+	 		{%endfor%}</td>
+		</tr>
+	</tbody>
+	</table>
 </body>
 </html>
