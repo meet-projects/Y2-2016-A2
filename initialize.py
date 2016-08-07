@@ -52,7 +52,6 @@ guitar = Instrument(name = "guitar")
 voice = Instrument(name = "voice")
 HIMYM = Interests(name = "How I met your mother")
 yaniv.instrument.append(guitar)
-yaniv.instrument.append(voice)
 yaniv.interests.append(HIMYM)
 
 tal = Person(name="Tal Bar",
