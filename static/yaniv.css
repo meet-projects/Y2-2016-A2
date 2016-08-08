@@ -10,3 +10,15 @@ body {
 	background-image: url("bg-signup.jpg");
     background-size: cover;
 }
+.who{
+	background-color: #adad85;
+}
+.who-r{
+	font-family: 'Montserrat'
+	sans-serif; 
+	font-size: 300%
+}
+.who-r-we{
+	margin-left: 30px;
+
+}
